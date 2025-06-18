@@ -17,6 +17,7 @@ export interface ResumeTemplate {
   category: 'student' | 'professional' | 'creative';
   description: string;
   preview: string;
+  templatePhoto: string;
 }
 
 const resumeTemplates: ResumeTemplate[] = [
@@ -25,56 +26,64 @@ const resumeTemplates: ResumeTemplate[] = [
     name: 'Modern Student',
     category: 'student',
     description: 'Clean and modern design perfect for students and recent graduates',
-    preview: 'bg-gradient-to-br from-blue-50 to-indigo-100'
+    preview: 'bg-gradient-to-br from-blue-50 to-indigo-100',
+    templatePhoto: 'https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=400&h=300&fit=crop'
   },
   {
     id: 'classic-professional',
     name: 'Classic Professional',
     category: 'professional',
     description: 'Traditional format ideal for experienced professionals',
-    preview: 'bg-gradient-to-br from-gray-50 to-slate-100'
+    preview: 'bg-gradient-to-br from-gray-50 to-slate-100',
+    templatePhoto: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=400&h=300&fit=crop'
   },
   {
     id: 'creative-designer',
     name: 'Creative Designer',
     category: 'creative',
     description: 'Bold and creative layout for designers and artists',
-    preview: 'bg-gradient-to-br from-purple-50 to-pink-100'
+    preview: 'bg-gradient-to-br from-purple-50 to-pink-100',
+    templatePhoto: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=300&fit=crop'
   },
   {
     id: 'tech-resume',
     name: 'Tech Professional',
     category: 'professional',
     description: 'Tech-focused design with modern elements',
-    preview: 'bg-gradient-to-br from-green-50 to-emerald-100'
+    preview: 'bg-gradient-to-br from-green-50 to-emerald-100',
+    templatePhoto: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=300&fit=crop'
   },
   {
     id: 'minimal-student',
     name: 'Minimal Student',
     category: 'student',
     description: 'Simple and clean design for internships',
-    preview: 'bg-gradient-to-br from-orange-50 to-amber-100'
+    preview: 'bg-gradient-to-br from-orange-50 to-amber-100',
+    templatePhoto: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=300&fit=crop'
   },
   {
     id: 'executive-professional',
     name: 'Executive',
     category: 'professional',
     description: 'Premium design for senior-level positions',
-    preview: 'bg-gradient-to-br from-red-50 to-rose-100'
+    preview: 'bg-gradient-to-br from-red-50 to-rose-100',
+    templatePhoto: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=400&h=300&fit=crop'
   },
   {
     id: 'portfolio-creative',
     name: 'Portfolio Style',
     category: 'creative',
     description: 'Showcase your work with this portfolio-style resume',
-    preview: 'bg-gradient-to-br from-cyan-50 to-blue-100'
+    preview: 'bg-gradient-to-br from-cyan-50 to-blue-100',
+    templatePhoto: 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=400&h=300&fit=crop'
   },
   {
     id: 'academic-student',
     name: 'Academic Focus',
     category: 'student',
     description: 'Perfect for academic positions and research roles',
-    preview: 'bg-gradient-to-br from-violet-50 to-purple-100'
+    preview: 'bg-gradient-to-br from-violet-50 to-purple-100',
+    templatePhoto: 'https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=400&h=300&fit=crop'
   }
 ];
 
@@ -171,8 +180,12 @@ const ResumeBuilder = ({ username, onLogout }: ResumeBuilderProps) => {
               onClick={() => setSelectedTemplate(template)}
             >
               <CardHeader className="pb-3">
-                <div className={`h-32 rounded-lg ${template.preview} mb-4 flex items-center justify-center group-hover:scale-105 transition-transform`}>
-                  <FileText className="h-12 w-12 text-gray-600" />
+                <div className="h-32 rounded-lg overflow-hidden mb-4 group-hover:scale-105 transition-transform">
+                  <img 
+                    src={template.templatePhoto} 
+                    alt={`${template.name} template preview`}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <div className="flex items-center justify-between">
                   <CardTitle className="text-white text-lg">{template.name}</CardTitle>
